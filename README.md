@@ -1,2 +1,0 @@
-# Conversor
-Conversor de moneda
