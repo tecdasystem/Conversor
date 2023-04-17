@@ -1,5 +1,7 @@
 package conversorMonedas;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class ConvertirMonedas {

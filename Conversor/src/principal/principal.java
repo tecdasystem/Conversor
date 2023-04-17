@@ -1,7 +1,10 @@
 package principal;
 
 import java.awt.EventQueue;
-
+import javax.swing.ImageIcon;
+//import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -12,13 +15,18 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 import conversorMonedas.function;
 import conversorTemperatura.functionTemperatura;
+import javax.swing.JLabel;
+import java.awt.Color;
+
 
 public class principal extends JFrame {
 
 	private JPanel contentPane;
+	FondoPanel fondo = new FondoPanel();
 
 	/**
 	 * Launch the application.
@@ -40,14 +48,24 @@ public class principal extends JFrame {
 	 * Create the frame.
 	 */
 	public principal() {
+		setResizable(false);
 		setTitle("CONVERSOR");
+		this.setContentPane(fondo);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(principal.class.getResource("/image/power1.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		this.setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Seleccione una opción:");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel.setBounds(104, 67, 188, 26);
+		contentPane.add(lblNewLabel);
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -122,6 +140,11 @@ public class principal extends JFrame {
 		btnCancel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnCancel.setBounds(265, 189, 112, 23);
 		contentPane.add(btnCancel);
+		
+		JPanel panel = new FondoPanel();
+		panel.setBounds(10, 11, 414, 239);
+		contentPane.add(panel);
+		panel.setLayout(null);
 	}
 
 	public static boolean ValidarNumero(String input) {
@@ -133,5 +156,22 @@ public class principal extends JFrame {
 		} catch (NumberFormatException e) {
 			return false;
 		}
+	}
+	
+	class FondoPanel extends JPanel {
+
+		private Image imagen;
+
+		@Override
+		public void paint(Graphics g) {
+			imagen = new ImageIcon(getClass().getResource("/image/fondo.png")).getImage();
+
+			g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+
+			setOpaque(false);
+
+			super.paint(g);
+		}
+
 	}
 }
