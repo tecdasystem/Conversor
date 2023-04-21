@@ -37,3 +37,13 @@ Para el desarrollo, utilicé:
 <p align="center">
 <img src="https://user-images.githubusercontent.com/122754085/233507520-f915e302-0778-4d86-ad5a-a26899e1c122.png">
 </p>
+
+
+# Autor
+
+[Héctor Cárdenas](https://github.com/tecdasystem)
+
+
+# Agradecimientos
+
+ONE Oracle Next Education en conjunto con Alura Latam por el acceso a los cursos necesarios para completar este challenge.
